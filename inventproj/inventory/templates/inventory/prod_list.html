@@ -1,0 +1,36 @@
+{% extends 'inventory/base.html' %}
+
+{% block content %}
+
+<a href="{% url 'product_create' %}">Add Product</a>
+
+<br><br>
+
+<table>
+   <tr style="background-color: lightcyan; border-bottom: 2px solid #8982ee">
+        <th>ID</th>
+        <th>Category</th>
+        <th>Name</th>
+        <th>SKU</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for product in products %}
+    <tr style="background-color: lightpink;text-align: center;">
+        <td>{{ product.id }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.sku }}</td>
+        <td>{{ product.quantity }}</td>
+        <td>₹{{ product.price }}</td>
+        <td>
+            <a href="{% url 'product_update' product.id %}">Edit</a>
+            <a href="{% url 'product_delete' product.id %}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
