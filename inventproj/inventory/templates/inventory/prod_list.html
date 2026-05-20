@@ -27,7 +27,7 @@
         <td>₹{{ product.price }}</td>
         <td>
             <a href="{% url 'product_update' product.id %}">Edit</a>
-            <a href="{% url 'product_delete' product.id %}">Delete</a>
+            <a href="{% url 'product_delete' product.id %}" style="background:red;">Delete</a>
         </td>
     </tr>
     {% endfor %}
